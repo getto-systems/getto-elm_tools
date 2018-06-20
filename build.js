@@ -39,15 +39,15 @@ const make = function(root){
             complete = false;
           }
         } else if(stats.isFile()) {
-          let path = path.split("/").map(function(tip){ return snake(tip); }).join("/").replace(/.elm$/, ".js");
-          let output = config.tmp + "/" + path;
+          let snake = path.split("/").map(function(tip){ return snake(tip); }).join("/").replace(/.elm$/, ".js");
+          let output = config.tmp + "/" + snake;
           execsh("npm run elm -- make "+path+" --output "+output, true, function(err){
             if(err) {
               complete = false;
               return;
             }
 
-            let dest = config.dest + "/" + path;
+            let dest = config.dest + "/" + snake;
             fs.rename(src, dest, function(err){
               if(err) {
                 console.log(err);
