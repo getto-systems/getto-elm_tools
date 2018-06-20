@@ -25,20 +25,22 @@ const make = function(root){
     }
 
     files.forEach(function(file){
-      fs.stat(file, function(err,stats){
+      let path = root + "/" + file;
+
+      fs.stat(path, function(err,stats){
         if(err) {
           console.log(err);
           return;
         }
 
         if(stats.isDirectory()) {
-          if(make(file)) {
+          if(make(path)) {
             complete = false;
           }
         } else if(stats.isFile()) {
-          let path = file.split("/").map(function(tip){ return snake(tip); }).join("/").replace(/.elm$/, ".js");
+          let path = path.split("/").map(function(tip){ return snake(tip); }).join("/").replace(/.elm$/, ".js");
           let output = config.tmp + "/" + path;
-          execsh("npm run elm -- make "+file+" --output "+output, true, function(err){
+          execsh("npm run elm -- make "+path+" --output "+output, true, function(err){
             if(err) {
               complete = false;
               return;
