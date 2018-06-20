@@ -18,7 +18,7 @@ npm run livereload # start web server with livereload and watch src to build elm
 
 - npm : 10.4.1
 
-elm packages not include dependencies
+elm packages are not include in dependencies
 
 - elm : 0.18.0
 - elm-test : 0.18.12
@@ -78,7 +78,7 @@ npm run reload -d ./public -w ./public/dist -p 8000
 npm install getto-elm_tools --save-dev
 ```
 
-add scripts to your `package.json`
+add below scripts to your `package.json`
 
 ```json
 "scripts": {
