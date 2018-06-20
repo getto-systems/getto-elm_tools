@@ -2,7 +2,7 @@
 
 development tool for elm
 
-```
+```bash
 npm run livereload # start web server with livereload and watch src to build elm
 ```
 
@@ -80,7 +80,7 @@ npm install getto-elm_tools --save-dev
 
 add scripts to your `package.json`
 
-```
+```json
 "scripts": {
   "build": "getto-build",
   "livereload": "npm run reload & npm run watch",
