@@ -19,6 +19,10 @@ getto_elm_build_main(){
     return
   fi
 
+  echo
+  echo "=== build start ==="
+  echo
+
   getto_elm_build_compile "$root"
 
   echo
