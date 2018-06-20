@@ -1,3 +1,7 @@
+# Version : 0.0.6
+
+fix: variable
+
 # Version : 0.0.5
 
 fix: path
