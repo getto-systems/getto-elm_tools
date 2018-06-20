@@ -1,3 +1,7 @@
+# Version : 0.0.10
+
+fix: compile interval
+
 # Version : 0.0.9
 
 fix: make script
