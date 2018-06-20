@@ -1,6 +1,6 @@
 {
   "name": "getto-elm_tools",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "development tools for elm",
   "bin": {
     "getto-build": "./build.sh",

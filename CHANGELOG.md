@@ -1,3 +1,7 @@
+# Version : 0.1.0
+
+minor version up
+
 # Version : 0.0.10
 
 fix: compile interval
