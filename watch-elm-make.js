@@ -38,7 +38,7 @@ const make = function(root){
             complete = false;
           }
         } else if(stats.isFile()) {
-          let snake = path.split("/").map(function(tip){ return snake(tip); }).join("/").replace(/.elm$/, ".js");
+          let snake = path.split("/").map(toSnakeCase).join("/").replace(/.elm$/, ".js");
           let output = config.tmp + "/" + snake;
           execsh("npm run elm -- make "+path+" --output "+output, true, function(err){
             if(err) {
@@ -72,7 +72,7 @@ const make = function(root){
   return complete;
 }
 
-const snake = function(tip){
+const toSnakeCase = function(tip){
   return tip.replace(/^[A-Z]/, function(char){
     return char.toLowerCase();
   }).replace(/[A-Z]/g, function(char){
