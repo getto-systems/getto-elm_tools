@@ -128,16 +128,16 @@ template receive entry's data like below
 
 ```json
 {
-  global: {
-    css: "0.2.36"
+  "global": {
+    "css": "0.2.36"
   },
-  entry: {
-    name: "profile",
-    title: "プロフィール"
+  "entry": {
+    "name": "profile",
+    "title": "プロフィール"
   },
-  info: {
-    path: "auth/profile"
-    module: "Auth.Index"
+  "info": {
+    "path": "auth/profile"
+    "module": "Auth.Index"
   }
 }
 ```
