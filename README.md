@@ -124,7 +124,7 @@ from `config/routes.yml` above, create elm and html files below
 - src/EntryPoint/Index.elm
 - src/EntryPoint/Auth/Profile.elm
 
-template receive entry's data like below
+template receive entry data like below
 
 ```json
 {
