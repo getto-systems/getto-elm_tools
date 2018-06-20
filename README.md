@@ -32,6 +32,7 @@ directories
 - src : Elm sources
 - src/EntryPoint/**/*.elm : entry point modules
 - public/dist/app/**/*.js : build artifacts
+- public/**/*.html : html pages
 - templates/page.html : html template
 - templates/page.elm : elm template
 - config/routes.yml : list pages
