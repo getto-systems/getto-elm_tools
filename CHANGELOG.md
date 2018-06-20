@@ -1,3 +1,7 @@
+# Version : 0.0.7
+
+add: snake function
+
 # Version : 0.0.6
 
 fix: variable
