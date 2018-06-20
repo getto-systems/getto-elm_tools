@@ -1,3 +1,7 @@
+# Version : 0.0.9
+
+fix: make script
+
 # Version : 0.0.8
 
 fix: snake case func name
