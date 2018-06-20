@@ -10,6 +10,7 @@ const config = {
   root: "./src",
   tmp: "./tmp/compile",
   options: {
+    interval: 0.3,
     ignoreDirectoryPattern: /EntryPoint/
   }
 }
