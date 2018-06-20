@@ -3,10 +3,10 @@
   "version": "0.0.2",
   "description": "development tools for elm",
   "bin": {
-    "getto-build": "node ./build.js",
-    "getto-watch-routes": "node ./watch-routes.js",
-    "getto-watch-make": "node ./watch-elm-make.js",
-    "getto-watch-compile": "node ./watch-elm-compile.js"
+    "getto-build": "./build.js",
+    "getto-watch-routes": "./watch-routes.js",
+    "getto-watch-make": "./watch-elm-make.js",
+    "getto-watch-compile": "./watch-elm-compile.js"
   },
   "main": "index.js",
   "repository": {
