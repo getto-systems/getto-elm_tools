@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 "use strict";
 
 const watch  = require("watch");
