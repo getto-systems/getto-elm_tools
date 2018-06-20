@@ -1,3 +1,7 @@
+# Version : 0.0.8
+
+fix: snake case func name
+
 # Version : 0.0.7
 
 add: snake function
