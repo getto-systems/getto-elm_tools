@@ -1,22 +1,37 @@
 #!/usr/bin/env node
 "use strict";
 
-const watch  = require("watch");
-const execsh = require("exec-sh");
+const path  = require("path");
+const watch = require("watch");
+const spawn = require("cross-spawn");
 
 const config = {
+  make: "./node_modules/.bin/elm-make",
   root: "./src",
+  tmp: "./tmp/compile",
   options: {
     ignoreDirectoryPattern: /EntryPoint/
   }
 }
 
 const compile = function(file){
-  execsh([
-    "npm run elm -- make "+file+" --output=tmp/compile/"+file+".js",
-    "rm -rf tmp/compile",
-    "echo"
-  ]);
+  const proc = spawn(config.make, ["--output="+config.tmp+"/"+file+".js", file]);
+  var error = new Buffer(0);
+
+  proc.stderr.on("data", function(stderr){
+    error = Buffer.concat([error, new Buffer(stderr)]);
+  });
+  proc.stdout.on("data", function(stdout){
+    process.stdout.write(stdout.toString());
+  });
+
+  proc.on("close", function(code){
+    if(!!code) {
+      console.log(error.toString());
+    } else {
+      console.log("");
+    }
+  });
 }
 
 watch.watchTree(config.root, config.options, function(file, current, previous){

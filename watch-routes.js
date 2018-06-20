@@ -22,7 +22,7 @@ const config = {
 const template = function(path,global,entries){
   entries.forEach(function(entry){
     if(!entry.name) {
-      console.log("missing entry name: ", entry)
+      console.log("missing entry name: " + entry);
     } else {
       let current = path.concat(entry.name);
       if(entry.entries){
