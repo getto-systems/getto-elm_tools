@@ -72,6 +72,14 @@ const make = function(root){
   return complete;
 }
 
+const snake = function(tip){
+  return tip.replace(/^[A-Z]/, function(char){
+    return char.toLowerCase();
+  }).replace(/[A-Z]/g, function(char){
+    return "_" + char.toLowerCase();
+  });
+}
+
 const rename = function(src,dest){
   fs.rename(src, dest, function(err){
     if(err) {

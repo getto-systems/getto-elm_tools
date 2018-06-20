@@ -69,6 +69,14 @@ const make = function(root){
   return complete;
 }
 
+const snake = function(tip){
+  return tip.replace(/^[A-Z]/, function(char){
+    return char.toLowerCase();
+  }).replace(/[A-Z]/g, function(char){
+    return "_" + char.toLowerCase();
+  });
+}
+
 if(fs.existsSync(config.tmp)) {
   console.log("tmp directory exists. maybe working: ", config.tmp);
   process.exit(1);
