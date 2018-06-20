@@ -50,7 +50,7 @@ const make = function(root){
             } else {
               execsh("sha1sum "+output, true, function(err,stdout,stderr){
                 let outputSum = stdout.replace(config.tmp,config.dest);
-                execsh("echo '"+outputSum"' | sha1sum -c --quiet", true, function(err,stdout,stderr){
+                execsh("echo '"+outputSum+"' | sha1sum -c --quiet", true, function(err,stdout,stderr){
                   if(err) {
                     console.log(err);
                     return;
