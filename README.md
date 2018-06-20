@@ -136,7 +136,7 @@ template receive entry's data like below
     "title": "プロフィール"
   },
   "info": {
-    "path": "auth/profile"
+    "path": "auth/profile",
     "module": "Auth.Index"
   }
 }
