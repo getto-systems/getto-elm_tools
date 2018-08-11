@@ -1,3 +1,7 @@
+# Version : 0.1.1
+
+fix: root path #routes.html
+
 # Version : 0.1.0
 
 minor version up
