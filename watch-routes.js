@@ -14,7 +14,7 @@ const config = {
     }
   },
   templates: {
-    html: {template: "templates/page.html", root: "./public/",         ext: ".html"},
+    html: {template: "templates/page.html", root: "./public/dist/",    ext: ".html"},
     elm:  {template: "templates/page.elm",  root: "./src/EntryPoint/", ext: ".elm"},
   }
 };
