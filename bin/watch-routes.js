@@ -14,7 +14,7 @@ program.version(require('../package.json').version)
   .option('    --template-elm [template-elm]', 'The template file for elm. Defaults to ./templates/elm.ejs.', "./templates/elm.ejs")
   .option('    --template-elm-dist [template-elm-dist]', 'The destination root directory to generate elm. Defaults to ./src/EntryPoint/', "./src/EntryPoint/")
   .option('    --template-config [template-config]', 'The template file for config. Defaults to ./templates/config.ejs.', "./templates/config.ejs")
-  .option('    --template-config-dist [template-config-dist]', 'The destination root directory to generate config. Defaults to ./public/dist/config/', "./public/dist/config/")
+  .option('    --template-config-dist [template-config-dist]', 'The destination root directory to generate config. Defaults to ./public/dist/_config/', "./public/dist/_config/")
   .parse(process.argv);
 
 const config = {
