@@ -1,3 +1,7 @@
+# Version : 0.2.2
+
+fix: typo
+
 # Version : 0.2.1
 
 fix: set default to header-files
