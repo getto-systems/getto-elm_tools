@@ -1,3 +1,7 @@
+# Version : 0.2.7
+
+remove: reload-server
+
 # Version : 0.2.6
 
 fix: create root directory #watch-routes
