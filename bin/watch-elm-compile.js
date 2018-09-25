@@ -2,13 +2,15 @@
 "use strict";
 
 const program = require('commander');
+const fs      = require("fs");
 const path    = require("path");
 const watch   = require("watch");
 const spawn   = require("cross-spawn");
 
 program.version(require('../package.json').version)
-  .option('-d, --dir [dir]', 'The directory to watch elm files. Defaults to ./src.', "./src")
-  .option('    --tmp [tmp]', 'The directory to generate js. Defaults to ./tmp/compile', '/tmp/compile')
+  .option('-d, --dir [dir]', 'The directory to watch files. Defaults to ./src.', "./src")
+  .option('    --tmp [tmp]', 'The directory to generate js. Defaults to /tmp/compile', '/tmp/compile')
+  .option('    --ignore [ignore]', 'The pattern to ignore watch files. Defaults to EntryPoint', 'EntryPoint')
   .parse(process.argv);
 
 const config = {
@@ -17,11 +19,20 @@ const config = {
   tmp: program.tmp,
   options: {
     interval: 0.3,
-    ignoreDirectoryPattern: /EntryPoint/,
-  }
+  },
+  ignore: new RegExp(program.ignore),
 }
 
 const compile = (file) => {
+  if (!fs.statSync(file).isFile()) {
+    return;
+  }
+  if (file.match(config.ignore)) {
+    return;
+  }
+
+  console.log("compile: " + file);
+
   const proc = spawn(config.make, ["--output="+config.tmp+"/"+file+".js", file]);
   let error = new Buffer(0);
 
