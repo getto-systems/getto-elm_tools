@@ -11,7 +11,7 @@ program.version(require('../package.json').version)
 
 const config = {
   watch: {
-    file: process.watchFile,
+    file: program.watchFile,
     options: {
       interval: 300,
     }
