@@ -1,3 +1,7 @@
+# Version : 0.2.5
+
+fix: config path #watch-routes
+
 # Version : 0.2.4
 
 fix: watch-elm-compile
