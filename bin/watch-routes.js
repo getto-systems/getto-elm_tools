@@ -77,9 +77,14 @@ const write = (template,path,data) => {
 }
 
 const mkdir = (root,paths) => {
-  var tips = [];
+  if(!fs.existsSync(root)) {
+    fs.mkdirSync(root);
+  }
+
+  let tips = [];
   paths.forEach((tip) => {
     tips.push(tip);
+
     const path = root + tips.join("/");
     if(!fs.existsSync(path)) {
       fs.mkdirSync(path);
