@@ -3,11 +3,12 @@
   "version": "0.1.1",
   "description": "development tools for elm",
   "bin": {
-    "getto-build": "./build.sh",
-    "getto-make": "./make.sh",
-    "getto-watch-routes": "./watch-routes.js",
-    "getto-watch-make": "./watch-elm-make.js",
-    "getto-watch-compile": "./watch-elm-compile.js"
+    "getto-build": "./bin/build.sh",
+    "getto-make": "./bin/make.sh",
+    "getto-reload": "./bin/reload.js",
+    "getto-watch-routes": "./bin/watch-routes.js",
+    "getto-watch-make": "./bin/watch-elm-make.js",
+    "getto-watch-compile": "./bin/watch-elm-compile.js"
   },
   "main": "index.js",
   "repository": {
@@ -21,11 +22,12 @@
   },
   "homepage": "https://github.com/getto-systems/getto-elm_tools",
   "dependencies": {
+    "connect": "^3.6.6",
     "cross-spawn": "^6.0.5",
     "ejs": "^2.6.1",
     "elm-github-install": "^1.6.1",
     "js-yaml": "^3.12.0",
-    "reload": "^2.3.0",
+    "reload": "^2.3.1",
     "uglify-js": "^3.4.1",
     "watch": "^1.0.2"
   }
