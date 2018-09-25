@@ -13,7 +13,7 @@ program.version(require('../package.json').version)
   .option('-p, --port [port]', 'The port to bind to. Can be set with PORT env variable as well. Defaults to 8080', '8080')
   .option('-v, --verbose [verbose]', 'Turning on logging on the server and client side. Defaults to false', false)
   .option('    --reload-js [reload-js]', 'The script to reload browser when contents changed. Defaults to /reload/reload.js', '/reload/reload.js')
-  .option('    --header-file [header-file]', 'Optional http headers for serving contents')
+  .option('    --header-file [header-file]', 'Optional http headers for serving contents. Defaults to headers.json', 'headers.json')
   .parse(process.argv);
 
 const serverFile = path.join(__dirname, '../lib/reload-server.js');
