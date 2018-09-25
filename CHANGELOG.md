@@ -1,3 +1,7 @@
+# Version : 0.2.4
+
+fix: watch-elm-compile
+
 # Version : 0.2.3
 
 fix: ignore patter #watch-elm-compile
