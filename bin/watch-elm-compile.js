@@ -9,7 +9,6 @@ const spawn   = require("cross-spawn");
 program.version(require('../package.json').version)
   .option('-d, --dir [dir]', 'The directory to watch elm files. Defaults to ./src.', "./src")
   .option('    --tmp [tmp]', 'The directory to generate js. Defaults to ./tmp/compile', '/tmp/compile')
-  .option('    --ignore [ignore]', 'The directory to ignore watch. Defaults to EntryPoint', 'EntryPoint')
   .parse(process.argv);
 
 const config = {
@@ -18,7 +17,7 @@ const config = {
   tmp: program.tmp,
   options: {
     interval: 0.3,
-    ignoreDirectoryPattern: new RegExp(program.ignore),
+    ignoreDirectoryPattern: /EntryPoint/,
   }
 }
 
