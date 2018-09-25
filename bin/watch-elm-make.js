@@ -1,31 +1,36 @@
 #!/usr/bin/env node
 "use strict";
 
-const fs    = require("fs");
-const spawn = require("cross-spawn");
+const program = require('commander');
+const fs      = require("fs");
+const spawn   = require("cross-spawn");
+
+program.version(require('../package.json').version)
+  .option('-f, --watch-file [watch-file]', 'The file to build when file changed. Defaults to ./tmp/build.txt.', "./tmp/build.txt")
+  .parse(process.argv);
 
 const config = {
   watch: {
-    file: "./tmp/build.txt",
+    file: process.watchFile,
     options: {
-      interval: 300
+      interval: 300,
     }
   }
 }
 
-fs.watchFile(config.watch.file, config.watch.options, function(current, previous){
+fs.watchFile(config.watch.file, config.watch.options, (current, previous) => {
   if(current.nlink > 0) {
     const proc = spawn("getto-make");
-    var error = new Buffer(0);
+    let error = new Buffer(0);
 
-    proc.stderr.on("data", function(stderr){
+    proc.stderr.on("data", (stderr) => {
       error = Buffer.concat([error, new Buffer(stderr)]);
     });
-    proc.stdout.on("data", function(stdout){
+    proc.stdout.on("data", (stdout) => {
       process.stdout.write(stdout.toString());
     });
 
-    proc.on("close", function(code){
+    proc.on("close", (code) => {
       if(!!code) {
         console.log(error.toString());
       }

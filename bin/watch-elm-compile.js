@@ -1,32 +1,39 @@
 #!/usr/bin/env node
 "use strict";
 
-const path  = require("path");
-const watch = require("watch");
-const spawn = require("cross-spawn");
+const program = require('commander');
+const path    = require("path");
+const watch   = require("watch");
+const spawn   = require("cross-spawn");
+
+program.version(require('../package.json').version)
+  .option('-d, --dir [dir]', 'The directory to watch elm files. Defaults to ./src.', "./src")
+  .option('    --tmp [tmp]', 'The directory to generate js. Defaults to ./tmp/compile', '/tmp/compile')
+  .option('    --ignore [ignore]', 'The directory to ignore watch. Defaults to EntryPoint', 'EntryPoint')
+  .parse(process.argv);
 
 const config = {
   make: "./node_modules/.bin/elm-make",
-  root: "./src",
-  tmp: "./tmp/compile",
+  dir: program.dir,
+  tmp: program.tmp,
   options: {
     interval: 0.3,
-    ignoreDirectoryPattern: /EntryPoint/
+    ignoreDirectoryPattern: new RegExp(program.ignore),
   }
 }
 
-const compile = function(file){
+const compile = (file) => {
   const proc = spawn(config.make, ["--output="+config.tmp+"/"+file+".js", file]);
-  var error = new Buffer(0);
+  let error = new Buffer(0);
 
-  proc.stderr.on("data", function(stderr){
+  proc.stderr.on("data", (stderr) => {
     error = Buffer.concat([error, new Buffer(stderr)]);
   });
-  proc.stdout.on("data", function(stdout){
+  proc.stdout.on("data", (stdout) => {
     process.stdout.write(stdout.toString());
   });
 
-  proc.on("close", function(code){
+  proc.on("close", (code) => {
     if(!!code) {
       console.log(error.toString());
     } else {
@@ -35,7 +42,7 @@ const compile = function(file){
   });
 }
 
-watch.watchTree(config.root, config.options, function(file, current, previous){
+watch.watchTree(config.dir, config.options, (file, current, previous) => {
   if(typeof file == "object" && previous === null && current === null) {
   } else if(previous === null) {
     // created
