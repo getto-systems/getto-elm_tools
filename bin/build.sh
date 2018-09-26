@@ -11,7 +11,7 @@ getto_elm_build_main(){
   uglify=./node_modules/.bin/uglifyjs
 
   root=src/EntryPoint
-  dest=public/dist/app
+  dest=public/dist/_app
   tmp=tmp/app
 
   if [ -d "$tmp" ]; then

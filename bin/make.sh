@@ -9,7 +9,7 @@ getto_elm_make_main(){
   make=./node_modules/.bin/elm-make
 
   root=src/EntryPoint
-  dest=public/dist/app
+  dest=public/dist/_app
   tmp=tmp/app
 
   if [ -d "$tmp" ]; then
